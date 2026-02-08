@@ -1,0 +1,163 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 100px 0 80px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+}
+
+/* Photo profil */
+.hero-avatar {
+  margin-bottom: 20px;
+}
+
+/* Texte */
+.hero-text {
+  max-width: 800px;
+}
+
+.hero-greeting {
+  font-size: 1.5rem;
+  color: var(--text-gray);
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+.hero-specialty {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: var(--neon-green);
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-gray);
+  margin-bottom: 40px;
+  max-width: 700px;
+}
+
+/* Boutons CTA */
+.hero-cta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.neon-button.outline {
+  background: transparent;
+}
+
+/* Social Links */
+.hero-social {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.social-link {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: var(--neon-green);
+  transition: all 0.3s ease;
+}
+
+.social-link svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: var(--neon-green);
+}
+
+.mouse {
+  width: 25px;
+  height: 40px;
+  border: 2px solid var(--neon-green);
+  border-radius: 15px;
+  position: relative;
+  box-shadow: var(--glow-sm);
+}
+
+.wheel {
+  width: 3px;
+  height: 8px;
+  background: var(--neon-green);
+  border-radius: 2px;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scroll-wheel 1.5s ease-in-out infinite;
+}
+
+@keyframes scroll-wheel {
+  0% {
+    top: 8px;
+    opacity: 1;
+  }
+  100% {
+    top: 20px;
+    opacity: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-greeting {
+    font-size: 1.2rem;
+  }
+  
+  .hero-specialty {
+    font-size: 1.1rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .neon-button {
+    width: 100%;
+  }
+}

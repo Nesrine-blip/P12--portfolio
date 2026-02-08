@@ -1,0 +1,88 @@
+/* ===== RESET & BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Couleurs Neon */
+  --bg-dark: #0a0a0a;
+  --bg-card: #1a1a1a;
+  --neon-green: #00ff88;
+  --neon-green-dark: #00cc6a;
+  --text-white: #ffffff;
+  --text-gray: #b0b0b0;
+  
+  /* Glow Effects */
+  --glow-sm: 0 0 5px var(--neon-green);
+  --glow-md: 0 0 10px var(--neon-green), 
+             0 0 20px var(--neon-green);
+  --glow-lg: 0 0 10px var(--neon-green), 
+             0 0 20px var(--neon-green), 
+             0 0 30px var(--neon-green),
+             0 0 40px var(--neon-green);
+  
+  /* Typographie */
+  --font-primary: 'Inter', -apple-system, sans-serif;
+  --font-code: 'Fira Code', monospace;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--bg-dark);
+  color: var(--text-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: var(--neon-green);
+  color: var(--bg-dark);
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Section */
+.section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.section-title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 60px;
+  color: var(--neon-green);
+  text-shadow: var(--glow-md);
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 3px;
+  background: var(--neon-green);
+  margin: 20px auto 0;
+  box-shadow: var(--glow-sm);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+}

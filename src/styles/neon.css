@@ -1,0 +1,107 @@
+/* ===== NEON EFFECTS ===== */
+
+/* Bordure Neon */
+.neon-border {
+  border: 2px solid var(--neon-green);
+  box-shadow: var(--glow-md);
+  transition: all 0.3s ease;
+}
+
+.neon-border:hover {
+  box-shadow: var(--glow-lg);
+  transform: translateY(-5px);
+}
+
+/* Texte Neon */
+.neon-text {
+  color: var(--neon-green);
+  text-shadow: var(--glow-md);
+}
+
+.neon-text-hover {
+  transition: all 0.3s ease;
+}
+
+.neon-text-hover:hover {
+  color: var(--neon-green);
+  text-shadow: var(--glow-lg);
+}
+
+/* Bouton Neon */
+.neon-button {
+  background: transparent;
+  border: 2px solid var(--neon-green);
+  color: var(--neon-green);
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: var(--glow-sm);
+  border-radius: 4px;
+}
+
+.neon-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--neon-green);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.neon-button:hover::before {
+  left: 0;
+}
+
+.neon-button:hover {
+  color: var(--bg-dark);
+  box-shadow: var(--glow-lg);
+}
+
+/* Card Neon */
+.neon-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  border-radius: 12px;
+  padding: 30px;
+  transition: all 0.3s ease;
+}
+
+.neon-card:hover {
+  border-color: var(--neon-green);
+  box-shadow: var(--glow-md);
+  transform: translateY(-10px);
+}
+
+/* Photo profil avec bordure neon */
+.neon-avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 3px solid var(--neon-green);
+  box-shadow: var(--glow-lg);
+  object-fit: cover;
+}
+
+/* Underline Neon */
+.neon-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.neon-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--neon-green);
+  box-shadow: var(--glow-sm);
+}

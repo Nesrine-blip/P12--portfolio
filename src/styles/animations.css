@@ -1,0 +1,110 @@
+/* ===== ANIMATIONS ===== */
+
+/* Pulse Neon */
+@keyframes pulse-neon {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--neon-green),
+                0 0 10px var(--neon-green);
+  }
+  50% {
+    box-shadow: 0 0 10px var(--neon-green),
+                0 0 20px var(--neon-green),
+                0 0 30px var(--neon-green);
+  }
+}
+
+.pulse-neon {
+  animation: pulse-neon 2s ease-in-out infinite;
+}
+
+/* Float */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Glow Rotate (pour logos) */
+@keyframes glow-rotate {
+  0% {
+    filter: drop-shadow(0 0 5px var(--neon-green));
+    transform: rotate(0deg);
+  }
+  50% {
+    filter: drop-shadow(0 0 15px var(--neon-green));
+  }
+  100% {
+    filter: drop-shadow(0 0 5px var(--neon-green));
+    transform: rotate(360deg);
+  }
+}
+
+.logo-tech {
+  width: 60px;
+  height: 60px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.logo-tech:hover {
+  animation: glow-rotate 1s ease-in-out;
+  transform: scale(1.2);
+}
+
+/* Fade In Up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Typing Effect */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+.typing-effect {
+  display: inline-block;
+  overflow: hidden;
+  border-right: 3px solid var(--neon-green);
+  white-space: nowrap;
+  animation: typing 3s steps(40) 1s forwards,
+             blink 0.75s step-end infinite;
+}
+
+/* Scroll Down Arrow */
+@keyframes scroll-down {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+}
+
+.scroll-indicator {
+  animation: scroll-down 1.5s ease-in-out infinite;
+}
