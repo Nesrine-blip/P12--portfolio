@@ -7,16 +7,8 @@ function About() {
         <h2 className="section-title" data-aos="fade-up">À Propos</h2>
         
         <div className="about-content">
-          {/* Colonne gauche - Photo et infos */}
+          {/* Colonne gauche - Infos */}
           <div className="about-left" data-aos="fade-right">
-            <div className="about-image-wrapper">
-              <img 
-                src="/nesrine-photo.jpg" 
-                alt="Nesrine" 
-                className="about-image neon-border"
-              />
-            </div>
-            
             <div className="about-info">
               <div className="info-item">
                 <span className="info-label neon-text">Nom :</span>
@@ -24,7 +16,7 @@ function About() {
               </div>
               <div className="info-item">
                 <span className="info-label neon-text">Localisation :</span>
-                <span className="info-value">Algérie</span>
+                <span className="info-value">Paris, France</span>
               </div>
               <div className="info-item">
                 <span className="info-label neon-text">Email :</span>
@@ -42,37 +34,24 @@ function About() {
             <div className="about-story">
               <h3 className="story-title neon-underline">Mon Parcours</h3>
               <p className="story-text">
-                Après plusieurs années dans l'enseignement du français, j'ai découvert le développement web 
-                via une formation OpenClassrooms. Cette reconversion m'a permis de réaliser que mon œil pour 
-                la structure, ma rigueur pédagogique et ma logique technique formaient un duo puissant.
+                Reconversion professionnelle réussie de l'enseignement du français vers le développement web. 
+                Formation intensive chez OpenClassrooms avec spécialisation en React et interfaces modernes.
               </p>
             </div>
 
             <div className="about-story">
-              <h3 className="story-title neon-underline">Expertise Technique</h3>
+              <h3 className="story-title neon-underline">Expertise</h3>
               <p className="story-text">
-                Je maîtrise React, Redux, et JavaScript ES6+, avec une expertise particulière en optimisation 
-                des performances et accessibilité web. J'ai développé ces compétences à travers des projets 
-                concrets comme la création d'applications bancaires et de plateformes de location immobilière.
-              </p>
-            </div>
-
-            <div className="about-story">
-              <h3 className="story-title neon-underline">Approche & Différenciation</h3>
-              <p className="story-text">
-                Mon approche allie méthodologie structurée et attention obsessionnelle au détail. Je crois 
-                qu'un code élégant et une UX parfaite ne sont pas incompatibles mais complémentaires. 
-                Ma transition depuis l'enseignement me donne une perspective unique sur la clarté et 
-                l'accessibilité des interfaces.
+                Maîtrise de React, Redux et JavaScript ES6+. Expertise en optimisation des performances 
+                et accessibilité web à travers des projets concrets.
               </p>
             </div>
 
             <div className="about-story">
               <h3 className="story-title neon-underline">Objectifs</h3>
               <p className="story-text">
-                Mon objectif est d'intégrer une équipe produit innovante où je pourrais contribuer à 
-                l'architecture de solutions accessibles et performantes, tout en continuant à développer 
-                mon expertise en React et en découvrir de nouvelles technologies.
+                Intégrer une équipe produit innovante pour contribuer à l'architecture de solutions 
+                accessibles et performantes tout en continuant à évoluer techniquement.
               </p>
             </div>
 

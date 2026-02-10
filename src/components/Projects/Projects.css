@@ -1,124 +1,329 @@
 .projects {
   background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-dark) 100%);
-}
-
-/* Filtres */
-.projects-filters {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 60px;
-  flex-wrap: wrap;
-}
-
-/* Grille de projets */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 40px;
-}
-
-.project-card {
-  cursor: pointer;
+  position: relative;
   overflow: hidden;
 }
 
-.project-image {
+/* Wrapper du carrousel */
+.carousel-wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 0;
+}
+
+.carousel-content-modern {
+  overflow: hidden;
+  padding: 0 100px;
+}
+
+/* Card moderne */
+.project-card-modern {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
+  background: var(--bg-card);
+  padding: 40px;
+  border-radius: 20px;
+  border: 2px solid rgba(0, 255, 136, 0.2);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease;
+}
+
+/* Animations de transition */
+.project-card-modern.fade-out {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.project-card-modern.fade-in {
+  opacity: 1;
+  transform: scale(1);
+  animation: fadeInScale 0.5s ease;
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Image du projet */
+.project-image-modern {
   position: relative;
   width: 100%;
-  height: 250px;
+  height: 450px;
+  border-radius: 16px;
   overflow: hidden;
-  border-radius: 12px;
-  margin-bottom: 20px;
+  box-shadow: 0 15px 40px rgba(0, 255, 136, 0.2);
 }
 
-.project-image img {
+.project-image-modern img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
 }
 
-.project-card:hover .project-image img {
-  transform: scale(1.1);
+.project-card-modern:hover .project-image-modern img {
+  transform: scale(1.05);
 }
 
-.project-overlay {
+.image-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 20px;
+  right: 20px;
+}
+
+.project-number {
   background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: 2px solid var(--neon-green);
   display: flex;
   align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  gap: 5px;
+  font-family: var(--font-code);
 }
 
-.project-card:hover .project-overlay {
-  opacity: 1;
-}
-
-.project-info {
-  padding: 10px;
-}
-
-.project-title {
+.current-number {
   font-size: 1.5rem;
+  font-weight: 700;
   color: var(--neon-green);
-  margin-bottom: 5px;
 }
 
-.project-subtitle {
+.total-number {
+  font-size: 1rem;
   color: var(--text-gray);
-  font-size: 0.9rem;
-  margin-bottom: 15px;
 }
 
-.project-description {
+/* Détails du projet */
+.project-details-modern {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.project-header-modern {
+  border-bottom: 2px solid rgba(0, 255, 136, 0.2);
+  padding-bottom: 20px;
+}
+
+.project-title-modern {
+  font-size: 2.5rem;
+  color: var(--neon-green);
+  margin: 0 0 10px 0;
+  font-weight: 700;
+}
+
+.project-subtitle-modern {
+  font-size: 1.1rem;
   color: var(--text-gray);
-  line-height: 1.6;
-  margin-bottom: 20px;
+  margin: 0;
+  font-style: italic;
 }
 
-.project-tags {
+.project-description-modern {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-gray);
+  margin: 0;
+}
+
+/* Tags modernes */
+.project-tags-modern {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
-  margin-bottom: 20px;
 }
 
-.tag {
+.tag-modern {
   background: rgba(0, 255, 136, 0.1);
   color: var(--neon-green);
-  padding: 5px 15px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  border: 1px solid rgba(0, 255, 136, 0.3);
-}
-
-.project-links {
-  display: flex;
-  gap: 15px;
-}
-
-.project-link {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--neon-green);
-  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 25px;
   font-size: 0.9rem;
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  font-weight: 600;
   transition: all 0.3s ease;
 }
 
-.project-link:hover {
-  text-shadow: var(--glow-sm);
+.tag-modern:hover {
+  background: rgba(0, 255, 136, 0.2);
+  border-color: var(--neon-green);
 }
 
-/* Modal */
+/* Stack technique */
+.project-stack-modern h4 {
+  font-size: 1rem;
+  color: var(--neon-green);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stack-list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.stack-item {
+  background: var(--bg-dark);
+  color: var(--text-white);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  border: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+/* Boutons d'action modernes */
+.project-actions-modern {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.btn-modern {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: none;
+}
+
+.btn-modern.primary {
+  background: var(--neon-green);
+  color: var(--bg-dark);
+}
+
+.btn-modern.primary:hover {
+  background: var(--neon-green-dark);
+  box-shadow: 0 5px 20px rgba(0, 255, 136, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-modern.secondary {
+  background: transparent;
+  color: var(--neon-green);
+  border: 2px solid var(--neon-green);
+}
+
+.btn-modern.secondary:hover {
+  background: var(--neon-green);
+  color: var(--bg-dark);
+  box-shadow: 0 5px 20px rgba(0, 255, 136, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Flèches modernes */
+.carousel-arrow-modern {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 255, 136, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--neon-green);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  color: var(--neon-green);
+}
+
+.carousel-arrow-modern:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.carousel-arrow-modern:not(:disabled):hover {
+  background: var(--neon-green);
+  color: var(--bg-dark);
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.6);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-arrow-modern.left {
+  left: 20px;
+}
+
+.carousel-arrow-modern.right {
+  right: 20px;
+}
+
+/* Indicateurs modernes */
+.carousel-indicators-modern {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 50px;
+}
+
+.indicator-modern {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(0, 255, 136, 0.2);
+  border: 2px solid rgba(0, 255, 136, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.indicator-modern:hover {
+  background: rgba(0, 255, 136, 0.4);
+  border-color: var(--neon-green);
+  transform: scale(1.2);
+}
+
+.indicator-modern.active {
+  background: var(--neon-green);
+  border-color: var(--neon-green);
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.6);
+  transform: scale(1.3);
+}
+
+.indicator-tooltip {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-dark);
+  color: var(--neon-green);
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  border: 1px solid var(--neon-green);
+}
+
+.indicator-modern:hover .indicator-tooltip {
+  opacity: 1;
+}
+
+/* Modal (reste identique) */
 .project-modal {
   position: fixed;
   top: 0;
@@ -222,10 +427,45 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-  .projects-grid {
+@media (max-width: 968px) {
+  .carousel-content-modern {
+    padding: 0 20px;
+  }
+  
+  .project-card-modern {
     grid-template-columns: 1fr;
     gap: 30px;
+    padding: 30px;
+  }
+  
+  .project-image-modern {
+    height: 300px;
+  }
+  
+  .project-title-modern {
+    font-size: 2rem;
+  }
+  
+  .carousel-arrow-modern {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .carousel-arrow-modern.left {
+    left: 10px;
+  }
+  
+  .carousel-arrow-modern.right {
+    right: 10px;
+  }
+  
+  .project-actions-modern {
+    flex-direction: column;
+  }
+  
+  .btn-modern {
+    width: 100%;
+    justify-content: center;
   }
   
   .modal-content {
@@ -242,5 +482,6 @@
   
   .modal-actions .neon-button {
     width: 100%;
+    justify-content: center;
   }
 }
