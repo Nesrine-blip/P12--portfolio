@@ -32,7 +32,7 @@ function Footer() {
             </a>
 
             <a 
-              href="https://linkedin.com/in/nesrine" 
+              href="https://www.linkedin.com/in/nisou-dev" 
               target="_blank" 
               rel="noopener noreferrer"
               className="social-icon neon-border"

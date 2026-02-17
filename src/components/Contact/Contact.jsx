@@ -69,8 +69,8 @@ function Contact() {
                 </svg>
               </div>
               <h3>LinkedIn</h3>
-              <a href="https://linkedin.com/in/nesrine" target="_blank" rel="noopener noreferrer">
-                Nesrine
+              <a href="https://www.linkedin.com/in/nisou-dev" target="_blank" rel="noopener noreferrer">
+                Nisou Dev
               </a>
             </div>
           </div>

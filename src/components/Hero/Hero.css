@@ -80,24 +80,25 @@
   max-width: 550px;
 }
 
-/* Animation typing avec effet machine à écrire - CORRIGÉE */
+/* Animation typing avec effet machine à écrire */
 .typing-effect {
   display: inline-block;
   border-right: 3px solid var(--neon-green);
   white-space: nowrap;
   overflow: hidden;
   animation: 
-    typing 3.5s steps(25, end) 0.5s forwards,
+    typing 4s steps(40, end) 0.5s forwards,
     blink-caret 0.75s step-end infinite;
-  max-width: 0;
+  width: 0;
+  min-width: 0;
 }
 
 @keyframes typing {
   from { 
-    max-width: 0;
+    width: 0;
   }
   to { 
-    max-width: 100%;
+    width: 30ch;
   }
 }
 
@@ -165,52 +166,6 @@
               0 0 60px rgba(0, 255, 136, 0.4),
               0 0 90px rgba(0, 255, 136, 0.2);
   animation: pulse-neon 3s ease-in-out infinite;
-}
-
-/* Scroll Indicator */
-.scroll-indicator {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  color: var(--neon-green);
-  z-index: 1;
-}
-
-.mouse {
-  width: 25px;
-  height: 40px;
-  border: 2px solid var(--neon-green);
-  border-radius: 15px;
-  position: relative;
-  box-shadow: var(--glow-sm);
-}
-
-.wheel {
-  width: 3px;
-  height: 8px;
-  background: var(--neon-green);
-  border-radius: 2px;
-  position: absolute;
-  top: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: scroll-wheel 1.5s ease-in-out infinite;
-}
-
-@keyframes scroll-wheel {
-  0% {
-    top: 8px;
-    opacity: 1;
-  }
-  100% {
-    top: 20px;
-    opacity: 0;
-  }
 }
 
 /* Responsive */
