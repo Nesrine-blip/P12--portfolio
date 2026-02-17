@@ -4,12 +4,12 @@
   overflow: hidden;
 }
 
-/* Wrapper du carrousel */
+/* Wrapper du carrousel - CORRIGÉ */
 .carousel-wrapper {
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 0;
+  padding: 20px 0;
 }
 
 .carousel-content-modern {

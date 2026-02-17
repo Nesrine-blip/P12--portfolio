@@ -58,6 +58,15 @@ html {
   position: relative;
 }
 
+/* Padding spécifique pour Projects et Contact - CORRIGÉ */
+.section.projects {
+  padding: 80px 0 60px 0;
+}
+
+.section.contact {
+  padding: 60px 0 100px 0;
+}
+
 .section-title {
   font-size: 3rem;
   text-align: center;
@@ -80,6 +89,14 @@ html {
 @media (max-width: 768px) {
   .section {
     padding: 60px 0;
+  }
+  
+  .section.projects {
+    padding: 60px 0 40px 0;
+  }
+
+  .section.contact {
+    padding: 40px 0 60px 0;
   }
   
   .section-title {

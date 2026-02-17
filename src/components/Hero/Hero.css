@@ -80,6 +80,36 @@
   max-width: 550px;
 }
 
+/* Animation typing avec effet machine à écrire - CORRIGÉE */
+.typing-effect {
+  display: inline-block;
+  border-right: 3px solid var(--neon-green);
+  white-space: nowrap;
+  overflow: hidden;
+  animation: 
+    typing 3.5s steps(25, end) 0.5s forwards,
+    blink-caret 0.75s step-end infinite;
+  max-width: 0;
+}
+
+@keyframes typing {
+  from { 
+    max-width: 0;
+  }
+  to { 
+    max-width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from, to { 
+    border-color: transparent;
+  }
+  50% { 
+    border-color: var(--neon-green);
+  }
+}
+
 /* Boutons CTA */
 .hero-cta {
   display: flex;

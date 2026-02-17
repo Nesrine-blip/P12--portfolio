@@ -74,23 +74,34 @@
   animation: fadeInUp 0.6s ease-out;
 }
 
-/* Typing Effect */
+/* Typing Effect avec machine à écrire - RESTAURÉE */
 @keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
+  from { 
+    max-width: 0;
+  }
+  to { 
+    max-width: 100%;
+  }
 }
 
-@keyframes blink {
-  50% { border-color: transparent; }
+@keyframes blink-caret {
+  from, to { 
+    border-color: transparent;
+  }
+  50% { 
+    border-color: var(--neon-green);
+  }
 }
 
 .typing-effect {
   display: inline-block;
-  overflow: hidden;
   border-right: 3px solid var(--neon-green);
   white-space: nowrap;
-  animation: typing 3s steps(40) 1s forwards,
-             blink 0.75s step-end infinite;
+  overflow: hidden;
+  animation: 
+    typing 3.5s steps(25, end) 0.5s forwards,
+    blink-caret 0.75s step-end infinite;
+  max-width: 0;
 }
 
 /* Scroll Down Arrow */
