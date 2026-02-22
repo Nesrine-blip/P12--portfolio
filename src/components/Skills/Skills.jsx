@@ -5,7 +5,9 @@ function Skills() {
   return (
     <section id="skills" className="section skills">
       <div className="container">
-        <h2 className="section-title" data-aos="fade-up">Compétences Techniques</h2>
+        <h2 className="section-title" data-aos="fade-up">
+          Compétences Techniques
+        </h2>
 
         <div className="skills-container">
           {skillsData.map((category, catIndex) => (
@@ -15,30 +17,34 @@ function Skills() {
               data-aos="fade-up"
               data-aos-delay={catIndex * 100}
             >
+              {/* Titre de la catégorie */}
               <div className="category-header">
                 <div className="category-line"></div>
                 <h3 className="category-title">{category.category}</h3>
                 <div className="category-line"></div>
               </div>
 
-              <div className="skills-grid-new">
-                {category.technologies.map((tech, techIndex) => (
-                  <div 
-                    key={techIndex} 
-                    className="skill-card-new"
-                    data-aos="zoom-in"
-                    data-aos-delay={catIndex * 100 + techIndex * 50}
-                  >
-                    <div className="skill-icon-wrapper">
-                      <img 
-                        src={tech.logo} 
-                        alt={tech.name} 
-                        className="skill-logo-new"
-                      />
+              {/* Grille des compétences */}
+              <div className="skills-grid">
+                {category.technologies.map((tech, techIndex) => {
+                  const IconComponent = tech.icon;
+                  return (
+                    <div 
+                      key={techIndex} 
+                      className="skill-card"
+                      data-aos="zoom-in"
+                      data-aos-delay={catIndex * 100 + techIndex * 50}
+                    >
+                      <div className="skill-icon-wrapper">
+                        <IconComponent 
+                          className="skill-icon" 
+                          style={{ color: tech.color }}
+                        />
+                      </div>
+                      <span className="skill-name">{tech.name}</span>
                     </div>
-                    <span className="skill-name-new">{tech.name}</span>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           ))}

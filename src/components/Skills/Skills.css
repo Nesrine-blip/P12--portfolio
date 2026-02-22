@@ -33,7 +33,7 @@
 .skills-container {
   display: flex;
   flex-direction: column;
-  gap: 70px;
+  gap: 60px;
   position: relative;
   z-index: 1;
   max-width: 1000px;
@@ -43,7 +43,7 @@
 /* Catégorie */
 .skills-category {
   background: var(--bg-card);
-  padding: 45px 40px;
+  padding: 40px;
   border-radius: 20px;
   border: 2px solid rgba(0, 255, 136, 0.2);
   transition: all 0.3s ease;
@@ -86,20 +86,20 @@
 }
 
 /* Grille des compétences */
-.skills-grid-new {
+.skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 25px;
 }
 
 /* Card de compétence */
-.skill-card-new {
+.skill-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
   background: rgba(0, 255, 136, 0.03);
-  padding: 25px 15px;
+  padding: 30px 20px;
   border-radius: 16px;
   border: 2px solid rgba(0, 255, 136, 0.15);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -109,7 +109,7 @@
 }
 
 /* Effet de brillance au survol */
-.skill-card-new::before {
+.skill-card::before {
   content: '';
   position: absolute;
   top: -50%;
@@ -127,7 +127,7 @@
   opacity: 0;
 }
 
-.skill-card-new:hover::before {
+.skill-card:hover::before {
   opacity: 1;
   animation: shine 1.5s ease-in-out;
 }
@@ -141,7 +141,7 @@
   }
 }
 
-.skill-card-new:hover {
+.skill-card:hover {
   border-color: var(--neon-green);
   background: rgba(0, 255, 136, 0.08);
   box-shadow: 0 10px 30px rgba(0, 255, 136, 0.25),
@@ -151,8 +151,8 @@
 
 /* Wrapper de l'icône */
 .skill-icon-wrapper {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -164,28 +164,27 @@
   z-index: 1;
 }
 
-.skill-card-new:hover .skill-icon-wrapper {
+.skill-card:hover .skill-icon-wrapper {
   border-color: var(--neon-green);
   box-shadow: 0 0 25px rgba(0, 255, 136, 0.5);
   transform: scale(1.15) rotateY(360deg);
 }
 
-/* Logo de la compétence */
-.skill-logo-new {
-  width: 45px;
-  height: 45px;
-  object-fit: contain;
+/* Icône de la compétence */
+.skill-icon {
+  font-size: 3rem;
   transition: all 0.4s ease;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
-.skill-card-new:hover .skill-logo-new {
-  filter: drop-shadow(0 0 12px rgba(0, 255, 136, 0.7));
+.skill-card:hover .skill-icon {
+  filter: drop-shadow(0 0 15px currentColor);
+  transform: scale(1.1);
 }
 
 /* Nom de la compétence */
-.skill-name-new {
-  font-size: 0.95rem;
+.skill-name {
+  font-size: 1rem;
   font-weight: 600;
   color: var(--text-white);
   text-align: center;
@@ -195,7 +194,7 @@
   letter-spacing: 0.5px;
 }
 
-.skill-card-new:hover .skill-name-new {
+.skill-card:hover .skill-name {
   color: var(--neon-green);
   text-shadow: 0 0 15px rgba(0, 255, 136, 0.6);
   transform: scale(1.05);
@@ -216,27 +215,26 @@
     letter-spacing: 2px;
   }
 
-  .skills-grid-new {
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-    gap: 18px;
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
   }
 
-  .skill-card-new {
-    padding: 20px 12px;
+  .skill-card {
+    padding: 25px 15px;
   }
 
   .skill-icon-wrapper {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
   }
 
-  .skill-logo-new {
-    width: 38px;
-    height: 38px;
+  .skill-icon {
+    font-size: 2.5rem;
   }
 
-  .skill-name-new {
-    font-size: 0.85rem;
+  .skill-name {
+    font-size: 0.9rem;
   }
 }
 
@@ -259,27 +257,26 @@
     letter-spacing: 1.5px;
   }
 
-  .skills-grid-new {
-    grid-template-columns: repeat(auto-fit, minmax(95px, 1fr));
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 15px;
   }
 
-  .skill-card-new {
-    padding: 18px 10px;
+  .skill-card {
+    padding: 20px 12px;
     gap: 12px;
   }
 
   .skill-icon-wrapper {
-    width: 55px;
-    height: 55px;
+    width: 60px;
+    height: 60px;
   }
 
-  .skill-logo-new {
-    width: 35px;
-    height: 35px;
+  .skill-icon {
+    font-size: 2rem;
   }
 
-  .skill-name-new {
-    font-size: 0.8rem;
+  .skill-name {
+    font-size: 0.85rem;
   }
 }

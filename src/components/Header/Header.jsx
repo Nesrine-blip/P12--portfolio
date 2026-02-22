@@ -22,11 +22,18 @@ function Header() {
     }
   };
 
+  // Fonction pour remonter en haut
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setMenuOpen(false);
+  };
+
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="container">
         <nav className="nav">
-          <div className="logo neon-text">
+          {/* Logo cliquable */}
+          <div className="logo neon-text" onClick={scrollToTop} style={{ cursor: 'pointer' }}>
             <span className="logo-bracket">{'<'}</span>
             Nesrine
             <span className="logo-bracket">{'/>'}</span>

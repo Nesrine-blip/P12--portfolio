@@ -1,13 +1,14 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import './Contact.css';
 
 function Contact() {
+  const form = useRef();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   });
-
   const [status, setStatus] = useState('');
 
   const handleChange = (e) => {
@@ -19,16 +20,25 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Simulation d'envoi (tu pourras ajouter un vrai service plus tard)
     setStatus('sending');
-    
-    setTimeout(() => {
-      setStatus('success');
-      setFormData({ name: '', email: '', message: '' });
-      
-      setTimeout(() => setStatus(''), 3000);
-    }, 1000);
+
+    // Configuration EmailJS avec tes clés
+    emailjs.sendForm(
+      'service_bj5cs1o',      // Service ID
+      'template_9reig0p',     // Template ID
+      form.current,
+      '3UD08ZW2dFNGohkr1'     // Public Key
+    )
+      .then(() => {
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => setStatus(''), 5000);
+      })
+      .catch((error) => {
+        console.error('Erreur EmailJS:', error);
+        setStatus('error');
+        setTimeout(() => setStatus(''), 5000);
+      });
   };
 
   return (
@@ -61,23 +71,11 @@ function Contact() {
                 @Nesrine-blip
               </a>
             </div>
-
-            <div className="info-card neon-card">
-              <div className="info-icon">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                </svg>
-              </div>
-              <h3>LinkedIn</h3>
-              <a href="https://www.linkedin.com/in/nisou-dev" target="_blank" rel="noopener noreferrer">
-                Nisou Dev
-              </a>
-            </div>
           </div>
 
           {/* Colonne droite - Formulaire */}
           <div className="contact-form-wrapper" data-aos="fade-left">
-            <form className="contact-form neon-card" onSubmit={handleSubmit}>
+            <form ref={form} className="contact-form neon-card" onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="name">Nom</label>
                 <input
@@ -122,11 +120,17 @@ function Contact() {
                 className="neon-button"
                 disabled={status === 'sending'}
               >
-                {status === 'sending' ? 'Envoi...' : 'Envoyer le message'}
+                {status === 'sending' ? 'Envoi en cours...' : 'Envoyer le message'}
               </button>
 
               {status === 'success' && (
-                <p className="success-message neon-text">Message envoyé avec succès !</p>
+                <p className="success-message neon-text">✅ Message envoyé avec succès !</p>
+              )}
+
+              {status === 'error' && (
+                <p className="error-message" style={{ color: '#ff4444', textAlign: 'center', marginTop: '20px', fontWeight: '600' }}>
+                   Erreur lors de l'envoi. Réessayez ou écrivez directement à nisoudev@gmail.com
+                </p>
               )}
             </form>
           </div>

@@ -58,7 +58,7 @@ function Hero() {
                 </a>
                 
                 <a 
-                  href="https://www.linkedin.com/in/nisou-dev" 
+                  href="https://linkedin.com/in/nesrine" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="social-link neon-border"
@@ -93,6 +93,14 @@ function Hero() {
               />
             </div>
           </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="scroll-indicator" data-aos="fade-up" data-aos-delay="600">
+          <div className="mouse">
+            <div className="wheel"></div>
+          </div>
+          <p>Scroll</p>
         </div>
       </div>
 
