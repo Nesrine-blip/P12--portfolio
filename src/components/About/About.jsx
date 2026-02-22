@@ -16,7 +16,7 @@ function About() {
               </div>
               <div className="info-item">
                 <span className="info-label neon-text">Localisation :</span>
-                <span className="info-value">Vitry-sur-Seine, France</span>
+                <span className="info-value">Paris, France</span>
               </div>
               <div className="info-item">
                 <span className="info-label neon-text">Email :</span>

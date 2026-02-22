@@ -8,7 +8,7 @@ import {
   FaGitAlt, 
   FaGithub, 
   FaFigma,
-  FaCode  // ← Icône de code générique pour VS Code
+  FaCode
 } from 'react-icons/fa';
 import { 
   SiRedux, 
@@ -77,7 +77,8 @@ const skills = [
       { 
         name: "GitHub", 
         icon: FaGithub, 
-        color: "#181717" 
+        /* Couleur blanche/grise claire pour être visible sur fond sombre */
+        color: "#e0e0e0" 
       },
       { 
         name: "Figma", 
@@ -86,7 +87,7 @@ const skills = [
       },
       { 
         name: "VS Code", 
-        icon: FaCode,  // ← Alternative
+        icon: FaCode,
         color: "#007ACC" 
       }
     ]

@@ -36,32 +36,43 @@ function Projects() {
 
   const currentProject = projectsData[currentIndex];
 
+  /* SVG flèches réutilisables */
+  const ArrowLeft = () => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  );
+
+  const ArrowRight = () => (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  );
+
   return (
     <section id="projects" className="section projects">
       <div className="container">
         <h2 className="section-title" data-aos="fade-up">Mes Projets</h2>
 
-        {/* Carrousel moderne */}
         <div className="carousel-wrapper" data-aos="fade-up" data-aos-delay="200">
-          <button 
-            className="carousel-arrow-modern left" 
+
+          {/* ── Flèches DESKTOP (positionnement absolu, cachées sur mobile) ── */}
+          <button
+            className="carousel-arrow-modern left"
             onClick={prevProject}
             disabled={isAnimating}
             aria-label="Projet précédent"
           >
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
+            <ArrowLeft />
           </button>
 
           <div className="carousel-content-modern">
             <div className={`project-card-modern ${isAnimating ? 'fade-out' : 'fade-in'}`}>
-              {/* Image du projet */}
+
               <div className="project-image-modern">
                 <img src={currentProject.image} alt={currentProject.title} />
               </div>
 
-              {/* Informations du projet */}
               <div className="project-details-modern">
                 <div className="project-header-modern">
                   <h3 className="project-title-modern">{currentProject.title}</h3>
@@ -70,14 +81,12 @@ function Projects() {
 
                 <p className="project-description-modern">{currentProject.description}</p>
 
-                {/* Tags */}
                 <div className="project-tags-modern">
                   {currentProject.tags.map((tag, i) => (
                     <span key={i} className="tag-modern">{tag}</span>
                   ))}
                 </div>
 
-                {/* Stack technique */}
                 <div className="project-stack-modern">
                   <h4>Stack :</h4>
                   <div className="stack-list">
@@ -87,9 +96,8 @@ function Projects() {
                   </div>
                 </div>
 
-                {/* Actions */}
                 <div className="project-actions-modern">
-                  <button 
+                  <button
                     className="btn-modern primary"
                     onClick={() => setSelectedProject(currentProject)}
                   >
@@ -99,9 +107,9 @@ function Projects() {
                     </svg>
                     Voir les détails
                   </button>
-                  <a 
-                    href={currentProject.github} 
-                    target="_blank" 
+                  <a
+                    href={currentProject.github}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="btn-modern secondary"
                   >
@@ -112,21 +120,41 @@ function Projects() {
                   </a>
                 </div>
               </div>
+
             </div>
           </div>
 
-          <button 
-            className="carousel-arrow-modern right" 
+          <button
+            className="carousel-arrow-modern right"
             onClick={nextProject}
             disabled={isAnimating}
             aria-label="Projet suivant"
           >
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
+            <ArrowRight />
           </button>
 
-          {/* Indicateurs modernes */}
+          {/* ── Flèches MOBILE (sous la card, visibles seulement sur mobile via CSS) ── */}
+          <div className="carousel-nav-mobile">
+            <button
+              className="carousel-arrow-modern"
+              onClick={prevProject}
+              disabled={isAnimating}
+              aria-label="Projet précédent"
+            >
+              <ArrowLeft />
+            </button>
+
+            <button
+              className="carousel-arrow-modern"
+              onClick={nextProject}
+              disabled={isAnimating}
+              aria-label="Projet suivant"
+            >
+              <ArrowRight />
+            </button>
+          </div>
+
+          {/* Indicateurs */}
           <div className="carousel-indicators-modern">
             {projectsData.map((project, index) => (
               <button
@@ -140,6 +168,7 @@ function Projects() {
               </button>
             ))}
           </div>
+
         </div>
 
         {/* Modal détails projet */}
@@ -155,7 +184,7 @@ function Projects() {
 
               <div className="modal-body">
                 <img src={selectedProject.image} alt={selectedProject.title} className="modal-image" />
-                
+
                 <h2 className="modal-title neon-text">{selectedProject.title}</h2>
                 <p className="modal-subtitle">{selectedProject.subtitle}</p>
 
@@ -194,9 +223,9 @@ function Projects() {
                 </div>
 
                 <div className="modal-actions">
-                  <a 
-                    href={selectedProject.github} 
-                    target="_blank" 
+                  <a
+                    href={selectedProject.github}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="neon-button"
                   >
@@ -206,9 +235,9 @@ function Projects() {
                     Voir sur GitHub
                   </a>
                   {selectedProject.demo && (
-                    <a 
-                      href={selectedProject.demo} 
-                      target="_blank" 
+                    <a
+                      href={selectedProject.demo}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="neon-button"
                     >
@@ -220,6 +249,7 @@ function Projects() {
             </div>
           </div>
         )}
+
       </div>
     </section>
   );

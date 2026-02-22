@@ -6,26 +6,25 @@
 }
 
 :root {
-  /* Couleurs Neon */
   --bg-dark: #0a0a0a;
   --bg-card: #1a1a1a;
   --neon-green: #00ff88;
   --neon-green-dark: #00cc6a;
   --text-white: #ffffff;
   --text-gray: #b0b0b0;
-  
-  /* Glow Effects */
+
   --glow-sm: 0 0 5px var(--neon-green);
-  --glow-md: 0 0 10px var(--neon-green), 
-             0 0 20px var(--neon-green);
-  --glow-lg: 0 0 10px var(--neon-green), 
-             0 0 20px var(--neon-green), 
-             0 0 30px var(--neon-green),
-             0 0 40px var(--neon-green);
-  
-  /* Typographie */
+  --glow-md: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green);
+  --glow-lg: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green),
+             0 0 30px var(--neon-green), 0 0 40px var(--neon-green);
+
   --font-primary: 'Inter', -apple-system, sans-serif;
   --font-code: 'Fira Code', monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -34,10 +33,7 @@ body {
   color: var(--text-white);
   line-height: 1.6;
   overflow-x: hidden;
-}
-
-html {
-  scroll-behavior: smooth;
+  max-width: 100vw;
 }
 
 ::selection {
@@ -45,20 +41,24 @@ html {
   color: var(--bg-dark);
 }
 
-/* Container */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  width: 100%;
 }
 
 /* Section */
 .section {
-  padding: 100px 0;
+  padding: 80px 0;
   position: relative;
 }
 
-/* Padding spécifique pour Projects et Contact - CORRIGÉ */
+.section#about,
+.about {
+  padding-top: 50px;
+}
+
 .section.projects {
   padding: 80px 0 60px 0;
 }
@@ -86,11 +86,23 @@ html {
   box-shadow: var(--glow-sm);
 }
 
+main {
+  padding-top: 70px;
+}
+
+/* ============================================================
+   TABLETTE (max 768px)
+   ============================================================ */
 @media (max-width: 768px) {
   .section {
-    padding: 60px 0;
+    padding: 50px 0;
   }
-  
+
+  .section#about,
+  .about {
+    padding-top: 30px;
+  }
+
   .section.projects {
     padding: 60px 0 40px 0;
   }
@@ -98,8 +110,51 @@ html {
   .section.contact {
     padding: 40px 0 60px 0;
   }
-  
+
   .section-title {
     font-size: 2rem;
+    margin-bottom: 40px;
+  }
+}
+
+/* ============================================================
+   MOBILE (max 600px)
+   ============================================================ */
+@media (max-width: 600px) {
+  .container {
+    padding: 0 24px;
+  }
+
+  .section {
+    padding: 30px 0;
+  }
+
+  /* Hero : réduit le padding-bottom pour coller à About */
+  .hero {
+    padding-bottom: 20px !important;
+  }
+
+  /* About : quasiment pas de padding-top, juste un souffle */
+  .section#about,
+  .about {
+    padding-top: 16px;
+  }
+
+  .section-title {
+    font-size: 1.7rem;
+    margin-bottom: 30px;
+  }
+}
+
+/* ============================================================
+   TRÈS PETIT MOBILE (max 380px)
+   ============================================================ */
+@media (max-width: 380px) {
+  .container {
+    padding: 0 18px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
   }
 }

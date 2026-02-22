@@ -42,6 +42,7 @@
   align-items: center;
 }
 
+/* TOUS les liens nav ont le même style */
 .nav-link {
   color: var(--text-white);
   text-decoration: none;
@@ -49,6 +50,12 @@
   transition: all 0.3s ease;
   cursor: pointer;
   position: relative;
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  box-shadow: none;
 }
 
 .nav-link::after {
@@ -69,17 +76,28 @@
 
 .nav-link:hover {
   color: var(--neon-green);
+  background: transparent;
+  box-shadow: none;
 }
 
-/* Bouton Contact dans nav */
-.nav-menu .neon-button {
-  padding: 8px 20px;
-  border: 2px solid var(--neon-green);
-  border-radius: 4px;
+/* Annuler les styles neon-button sur les liens nav */
+.nav-menu .nav-link.neon-button {
+  background: transparent;
+  border: none;
+  color: var(--text-white);
+  padding: 0;
+  box-shadow: none;
+  overflow: visible;
 }
 
-.nav-menu .neon-button::after {
+.nav-menu .nav-link.neon-button::before {
   display: none;
+}
+
+.nav-menu .nav-link.neon-button:hover {
+  color: var(--neon-green);
+  background: transparent;
+  box-shadow: none;
 }
 
 /* Burger Menu */
