@@ -1,18 +1,52 @@
 <!doctype html>
 <html lang="fr">
   <head>
+    <!-- Basic settings -->
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nesrine — Développeuse Front-End</title>
+    <title>Nesrine — Développeuse Front-End | Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <!-- SEO (for Google) -->
+    <meta name="description" content="Portfolio de Nesrine, développeuse front-end spécialisée en React et interfaces modernes." />
+    <meta name="keywords" content="développeuse front-end, React, JavaScript, HTML, CSS, portfolio" />
+    <meta name="author" content="Nesrine" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://p12-portfolio-ruddy.vercel.app/" />
+
+    <!-- Social media preview (Facebook, LinkedIn, Twitter) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://p12-portfolio-ruddy.vercel.app/" />
+    <meta property="og:title" content="Nesrine — Développeuse Front-End" />
+    <meta property="og:description" content="Portfolio de Nesrine, développeuse front-end spécialisée en React." />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Nesrine — Développeuse Front-End" />
+    <meta name="twitter:description" content="Portfolio de Nesrine, développeuse front-end spécialisée en React." />
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Syne:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Orbitron&family=Syne&family=Fira+Code&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Structured data (for search engines) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Nesrine",
+      "jobTitle": "Développeuse Front-End",
+      "url": "https://p12-portfolio-ruddy.vercel.app/",
+      "sameAs": ["https://github.com/Nesrine-blip"]
+    }
+    </script>
   </head>
+
   <body>
+    <!-- React app here -->
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
