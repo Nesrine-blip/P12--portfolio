@@ -1,22 +1,23 @@
-/* ===== RESET & BASE ===== */
+/* ========================
+   RESET — remove all default margins/paddings
+   ======================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ========================
+   DESIGN TOKENS
+   Colors, fonts, glow effects
+   ======================== */
 :root {
-  /* =============================================
-     POLICES
-     --font-display  : Orbitron  → titres, nav logo
-     --font-primary  : Syne      → corps, paragraphes
-     --font-code     : Fira Code → accents <code/>
-     ============================================= */
-  --font-display: 'Orbitron', sans-serif;
-  --font-primary: 'Syne', sans-serif;
-  --font-code:    'Fira Code', monospace;
+  /* Fonts */
+  --font-display: 'Orbitron', sans-serif;  /* headings, buttons */
+  --font-primary: 'Syne', sans-serif;      /* body text */
+  --font-code:    'Fira Code', monospace;  /* logo, code */
 
-  /* Couleurs */
+  /* Colors */
   --bg-dark:        #0a0a0a;
   --bg-card:        #1a1a1a;
   --neon-green:     #00ff88;
@@ -24,46 +25,48 @@
   --text-white:     #ffffff;
   --text-gray:      #b0b0b0;
 
-  /* Glow */
+  /* Glow shadows (reused across components) */
   --glow-sm: 0 0 5px var(--neon-green);
   --glow-md: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green);
   --glow-lg: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green),
              0 0 30px var(--neon-green), 0 0 40px var(--neon-green);
 }
 
+/* ========================
+   BASE STYLES
+   ======================== */
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
 body {
-  /* Syne pour tout le corps */
   font-family: var(--font-primary);
   background-color: var(--bg-dark);
   color: var(--text-white);
   line-height: 1.6;
   overflow-x: hidden;
   max-width: 100vw;
-  /* Légèrement aéré — Syne le mérite */
   letter-spacing: 0.01em;
 }
 
+/* Highlight color when text is selected */
 ::selection {
   background-color: var(--neon-green);
   color: var(--bg-dark);
 }
 
-/* =============================================
-   TYPOGRAPHIE GLOBALE
-   ============================================= */
+/* ========================
+   TYPOGRAPHY
+   ======================== */
 
-/* Tous les titres → Orbitron */
+/* All headings use Orbitron */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   letter-spacing: 0.02em;
 }
 
-/* Section title → Orbitron avec glow */
+/* Shared section title style */
 .section-title {
   font-family: var(--font-display);
   font-size: 3rem;
@@ -76,6 +79,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.05em;
 }
 
+/* Decorative underline below section titles */
 .section-title::after {
   content: '';
   display: block;
@@ -86,12 +90,12 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: var(--glow-sm);
 }
 
-/* Logo nav <Nesrine/> → Fira Code (inchangé) */
+/* Logo keeps Fira Code font */
 .logo {
   font-family: var(--font-code) !important;
 }
 
-/* Boutons → Orbitron pour le côté tech */
+/* Buttons use Orbitron for techy look */
 button,
 .neon-button,
 .btn-modern {
@@ -99,21 +103,23 @@ button,
   letter-spacing: 0.05em;
 }
 
-/* Nav links → Syne, léger */
+/* Nav links use Syne */
 .nav-link {
   font-family: var(--font-primary);
   font-weight: 600;
   letter-spacing: 0.04em;
 }
 
-/* Accents code partout */
+/* Code snippets */
 code, pre, .font-code {
   font-family: var(--font-code);
 }
 
-/* =============================================
-   CONTAINER
-   ============================================= */
+/* ========================
+   LAYOUT
+   ======================== */
+
+/* Max width wrapper centered on page */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -121,91 +127,55 @@ code, pre, .font-code {
   width: 100%;
 }
 
-/* =============================================
-   SECTIONS
-   ============================================= */
+/* Base padding for all sections */
 .section {
   padding: 80px 0;
   position: relative;
 }
 
+/* About has reduced top padding — small gap after hero */
 .section#about,
 .about {
-  padding-top: 50px;
+  padding-top: 1px;
 }
 
-.section.projects {
-  padding: 80px 0 60px 0;
-}
+/* Custom padding for projects and contact */
+.section.projects { padding: 80px 0 60px 0; }
+.section.contact  { padding: 60px 0 100px 0; }
 
-.section.contact {
-  padding: 60px 0 100px 0;
-}
-
+/* Space below fixed header */
 main {
   padding-top: 70px;
 }
 
-/* =============================================
-   RESPONSIVE TABLETTE (max 768px)
-   ============================================= */
+/* ========================
+   TABLET (max 768px)
+   ======================== */
 @media (max-width: 768px) {
-  .section {
-    padding: 50px 0;
-  }
-
+  .section           { padding: 50px 0; }
   .section#about,
-  .about {
-    padding-top: 30px;
-  }
-
-  .section.projects { padding: 60px 0 40px 0; }
-  .section.contact  { padding: 40px 0 60px 0; }
-
-  .section-title {
-    font-size: 2rem;
-    margin-bottom: 40px;
-  }
+  .about             { padding-top: 20px; }
+  .section.projects  { padding: 60px 0 40px 0; }
+  .section.contact   { padding: 40px 0 60px 0; }
+  .section-title     { font-size: 2rem; margin-bottom: 40px; }
 }
 
-/* =============================================
-   RESPONSIVE MOBILE (max 600px)
-   ============================================= */
+/* ========================
+   MOBILE (max 600px)
+   ======================== */
 @media (max-width: 600px) {
-  .container {
-    padding: 0 24px;
-  }
-
-  .section {
-    padding: 30px 0;
-  }
-
-  .hero {
-    padding-bottom: 20px !important;
-  }
-
+  .container         { padding: 0 24px; }
+  .section           { padding: 30px 0; }
+  .hero              { padding-bottom: 20px !important; }
   .section#about,
-  .about {
-    padding-top: 16px;
-  }
-
-  .section-title {
-    font-size: 1.6rem;
-    margin-bottom: 30px;
-    /* Orbitron est plus large, on réduit le letter-spacing sur mobile */
-    letter-spacing: 0.02em;
-  }
+  .about             { padding-top: 16px; }
+  .section-title     { font-size: 1.6rem; margin-bottom: 30px; letter-spacing: 0.02em; }
 }
 
-/* =============================================
-   TRÈS PETIT MOBILE (max 380px)
-   ============================================= */
+/* ========================
+   SMALL MOBILE (max 380px)
+   ======================== */
 @media (max-width: 380px) {
-  .container {
-    padding: 0 18px;
-  }
-
-  .section-title {
-    font-size: 1.4rem;
-  }
+  .container     { padding: 0 18px; }
+  .section-title { font-size: 1.4rem; }
 }

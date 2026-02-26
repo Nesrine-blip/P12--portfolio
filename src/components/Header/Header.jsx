@@ -5,51 +5,62 @@ function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // Add shadow to header when user scrolls down
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setMenuOpen(false);
-    }
+  // Smooth scroll to a section and close mobile menu
+  const scrollTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    setMenuOpen(false);
   };
 
-  // Fonction pour remonter en haut
+  // Scroll back to top when logo is clicked
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setMenuOpen(false);
   };
 
+  // Nav links list — easy to update
+  const navLinks = [
+    { label: 'Accueil',     id: 'home' },
+    { label: 'À propos',    id: 'about' },
+    { label: 'Compétences', id: 'skills' },
+    { label: 'Projets',     id: 'projects' },
+    { label: 'Contact',     id: 'contact' },
+  ];
+
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="container">
         <nav className="nav">
-          {/* Logo cliquable */}
-          <div className="logo neon-text" onClick={scrollToTop} style={{ cursor: 'pointer' }}>
+
+          {/* Logo — click to go top */}
+          <div className="logo neon-text" onClick={scrollToTop}>
             <span className="logo-bracket">{'<'}</span>
             Nesrine
             <span className="logo-bracket">{'/>'}</span>
           </div>
 
-          {/* Menu Desktop */}
+          {/* Desktop navigation */}
           <ul className="nav-menu desktop-menu">
-            <li><a onClick={() => scrollToSection('home')} className="nav-link">Accueil</a></li>
-            <li><a onClick={() => scrollToSection('about')} className="nav-link">À propos</a></li>
-            <li><a onClick={() => scrollToSection('skills')} className="nav-link">Compétences</a></li>
-            <li><a onClick={() => scrollToSection('projects')} className="nav-link">Projets</a></li>
-            <li><a onClick={() => scrollToSection('contact')} className="nav-link neon-button">Contact</a></li>
+            {navLinks.map((link) => (
+              <li key={link.id}>
+                <a
+                  onClick={() => scrollTo(link.id)}
+                  className={`nav-link ${link.id === 'contact' ? 'neon-button' : ''}`}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
 
-          {/* Burger Menu */}
-          <button 
+          {/* Burger button — mobile only */}
+          <button
             className={`burger ${menuOpen ? 'open' : ''}`}
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Menu"
@@ -60,16 +71,17 @@ function Header() {
           </button>
         </nav>
 
-        {/* Menu Mobile */}
+        {/* Mobile menu drawer */}
         <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
           <ul>
-            <li><a onClick={() => scrollToSection('home')}>Accueil</a></li>
-            <li><a onClick={() => scrollToSection('about')}>À propos</a></li>
-            <li><a onClick={() => scrollToSection('skills')}>Compétences</a></li>
-            <li><a onClick={() => scrollToSection('projects')}>Projets</a></li>
-            <li><a onClick={() => scrollToSection('contact')}>Contact</a></li>
+            {navLinks.map((link) => (
+              <li key={link.id}>
+                <a onClick={() => scrollTo(link.id)}>{link.label}</a>
+              </li>
+            ))}
           </ul>
         </div>
+
       </div>
     </header>
   );

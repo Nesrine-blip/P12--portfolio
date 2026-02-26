@@ -1,59 +1,59 @@
 import './About.css';
 
+// Personal info displayed in the left card
+const INFO_ITEMS = [
+  { label: 'Nom :',         value: 'Nesrine' },
+  { label: 'Localisation :', value: 'Paris, France' },
+  { label: 'Email :',       value: 'nisoudev@gmail.com' },
+  { label: 'Formation :',   value: 'OpenClassrooms' },
+];
+
+// Story sections displayed on the right
+const STORY_SECTIONS = [
+  {
+    title: 'Mon Parcours',
+    text: "Reconversion professionnelle réussie de l'enseignement vers le développement web. Formation intensive chez OpenClassrooms avec spécialisation en React et interfaces modernes.",
+  },
+  {
+    title: 'Expertise',
+    text: "Expertise en HTML, CSS, JavaScript et React avec un accent mis sur l'accessibilité des sites et les performances.",
+  },
+  {
+    title: 'Objectifs',
+    text: "Intégrer une équipe produit innovante pour contribuer à l'architecture de solutions accessibles et performantes tout en continuant à évoluer techniquement.",
+  },
+];
+
 function About() {
   return (
     <section id="about" className="section about">
       <div className="container">
         <h2 className="section-title" data-aos="fade-up">À Propos</h2>
-        
+
         <div className="about-content">
-          {/* Colonne gauche - Infos */}
+
+          {/* LEFT — info card */}
           <div className="about-left" data-aos="fade-right">
             <div className="about-info">
-              <div className="info-item">
-                <span className="info-label neon-text">Nom :</span>
-                <span className="info-value">Nesrine</span>
-              </div>
-              <div className="info-item">
-                <span className="info-label neon-text">Localisation :</span>
-                <span className="info-value">Paris, France</span>
-              </div>
-              <div className="info-item">
-                <span className="info-label neon-text">Email :</span>
-                <span className="info-value">nisoudev@gmail.com</span>
-              </div>
-              <div className="info-item">
-                <span className="info-label neon-text">Formation :</span>
-                <span className="info-value">OpenClassrooms</span>
-              </div>
+              {INFO_ITEMS.map((item, i) => (
+                <div key={i} className="info-item">
+                  <span className="info-label neon-text">{item.label}</span>
+                  <span className="info-value">{item.value}</span>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Colonne droite - Texte */}
+          {/* RIGHT — story blocks */}
           <div className="about-right" data-aos="fade-left">
-            <div className="about-story">
-              <h3 className="story-title neon-underline">Mon Parcours</h3>
-              <p className="story-text">
-                Reconversion professionnelle réussie de l'enseignement vers le développement web. 
-                Formation intensive chez OpenClassrooms avec spécialisation en React et interfaces modernes.
-              </p>
-            </div>
-
-            <div className="about-story">
-              <h3 className="story-title neon-underline">Expertise</h3>
-              <p className="story-text">
-                Expertise en HTML, CSS, JavaScript et React avec un accent mis sur l'accessibilité des sites et les performances.
-              </p>
-            </div>
-
-            <div className="about-story">
-              <h3 className="story-title neon-underline">Objectifs</h3>
-              <p className="story-text">
-                Intégrer une équipe produit innovante pour contribuer à l'architecture de solutions 
-                accessibles et performantes tout en continuant à évoluer techniquement.
-              </p>
-            </div>
+            {STORY_SECTIONS.map((section, i) => (
+              <div key={i} className="about-story">
+                <h3 className="story-title neon-underline">{section.title}</h3>
+                <p className="story-text">{section.text}</p>
+              </div>
+            ))}
           </div>
+
         </div>
       </div>
     </section>
